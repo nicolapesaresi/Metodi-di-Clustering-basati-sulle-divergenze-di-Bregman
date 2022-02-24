@@ -49,9 +49,10 @@ BregEM<-bregem(dati,mu=muinit)
 EM<-emgaussian(dati,mu=muinit)
 
 
-xtable(matrix(c(BregEM$mu[[1]],BregEM$mu[[2]]),ncol=2,byrow=T))
-xtable(matrix(c(EM$mu[[1]],EM$mu[[2]]),ncol=2,byrow=T))
+xtable(matrix(c(BregEM$mu[[1]],BregEM$mu[[2]],BregEM$mu[[3]]),ncol=2,byrow=F))
+xtable(matrix(c(EM$mu[[1]],EM$mu[[2]],EM$mu[[3]]),ncol=2,byrow=F))
 
 xtable(matrix(c(EM$mixprobs,EM$ll,EM$iter,
                 BregEM$mixprobs,BregEM$ll,BregEM$iter),nrow=2,byrow=T))
+
 
