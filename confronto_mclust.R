@@ -1,5 +1,6 @@
 source("bregem.R")
 library(mclust)
+library(ggplot2)
 set.seed(123)
 
 col1<-rnorm(1000,mean=c(1,2),sd=1)
@@ -19,19 +20,19 @@ xtable(matrix(c(BregEM$mixprobs,BregEM$ll,
 
 grafreal<-ggplot(data.frame(dati), aes(x = col1, y = col2) )+
   theme_light() +
-  xlab("col1") + ylab("col2") +
+  xlab("X1") + ylab("X2") +
   theme(axis.text.y=element_blank(),axis.text.x=element_blank(),panel.grid.major.y = element_blank() ) +
   geom_point(color=col3)
 
 grafbreg<-ggplot(data.frame(dati), aes(x = col1, y = col2) )+
   theme_light() +
-  xlab("col1") + ylab("col2") +
+  xlab("X1") + ylab("X2") +
   theme(axis.text.y=element_blank(),axis.text.x=element_blank(),panel.grid.major.y = element_blank() ) +
   geom_point(color=BregEM$cluster)
 
 grafmclust<-ggplot(data.frame(dati), aes(x = col1, y = col2) )+
   theme_light() +
-  xlab("col1") + ylab("col2") +
+  xlab("X1") + ylab("X2") +
   theme(axis.text.y=element_blank(),axis.text.x=element_blank(),panel.grid.major.y = element_blank() ) +
   geom_point(color=mc$classification)
 
