@@ -38,6 +38,8 @@ grhard<-ggplot(faithful, aes(x = waiting, y = eruptions)) +
 library(cowplot)
 plot_grid(grsoft,grhard)
 
+set.seed(12)
+
 #artificiale
 col1<-rnorm(150,mean=c(0,0.5,1),sd=1)
 col2<-rnorm(150,mean=c(2,2.1,3),sd=1)
@@ -47,7 +49,6 @@ muinit<-list(dati[1,],dati[2,],dati[3,])
 
 BregEM<-bregem(dati,mu=muinit)
 EM<-emgaussian(dati,mu=muinit)
-
 
 xtable(matrix(c(BregEM$mu[[1]],BregEM$mu[[2]],BregEM$mu[[3]]),ncol=2,byrow=F))
 xtable(matrix(c(EM$mu[[1]],EM$mu[[2]],EM$mu[[3]]),ncol=2,byrow=F))
